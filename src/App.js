@@ -17,13 +17,10 @@ class App extends Component {
       .then(users => this.setState({ monsters: users }));
   }
   render() {
+    const { monsters } = this.state;
     return (
       <div>
-        <CardList>
-          {this.state.monsters.map(monster => (
-            <h1 key={monster._id}>{monster.name}</h1>
-          ))}
-        </CardList>
+        <CardList monsters={monsters} />
       </div>
     );
   }
